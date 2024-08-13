@@ -2,7 +2,7 @@ const routes = [
   {
     path: '/test',
     name: 'home',
-    component: () => import('@/views/test.vue'), //路由懒加载
+    component: () => import('@/views/test'), //路由懒加载
   },
 ]
 

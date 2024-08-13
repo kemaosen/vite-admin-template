@@ -1,7 +1,8 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path, { resolve } from 'path'
+import { resolve } from 'path'
 import { visualizer } from 'rollup-plugin-visualizer'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
 export default ({ mode }: any) => {
@@ -19,13 +20,15 @@ export default ({ mode }: any) => {
       //   ext: '.gz',
       // }),
       visualizer({ open: false }),
+      vueJsx(),
     ],
     resolve: {
       alias: {
-        '@': path.resolve('./src'), // 设置别名
+        '@': resolve('./src'), // 设置别名
       },
     },
     server: {
+      port: 2157,
       proxy: {
         '/api': {
           target: '', //设置请求地址
