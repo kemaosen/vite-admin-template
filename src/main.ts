@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import './style.css'
+import router from './router/index'
 import App from './App.vue'
-console.log(import.meta.env.VITE_ENV)
 
-createApp(App).mount('#app')
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
