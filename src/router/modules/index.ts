@@ -1,8 +1,13 @@
 const routes = [
   {
-    path: '/test',
+    path: '/',
     name: 'home',
-    component: () => import('@/views/test'), //路由懒加载
+    component: () => import('@/views/main'),
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('@/views/test'),
   },
 ]
 
