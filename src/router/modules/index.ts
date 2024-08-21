@@ -5,9 +5,9 @@ const routes = [
     component: () => import('@/views/main'),
   },
   {
-    path: '/test',
-    name: 'test',
-    component: () => import('@/views/test'),
+    path: '/fullScreen',
+    name: 'fullScreen',
+    component: () => import('@/views/examples/fullScreen'),
   },
 ]
 
