@@ -1,19 +1,12 @@
 import { isNullOrDef, isObject } from './is'
 export type Fn = (value: void) => void | PromiseLike<void>
 
-// sleep
 export function sleep(s: number): Promise<void> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve()
     }, s * 1000)
   })
-}
-
-// nextTick
-export function nextTick(fn: Fn): Promise<void> {
-  const p = Promise.resolve()
-  return fn ? p.then(fn) : p
 }
 
 // 深拷贝

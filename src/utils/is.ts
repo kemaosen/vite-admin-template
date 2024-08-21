@@ -1,9 +1,3 @@
-/**
- * 类型校验
- * @Author ln@inesa-t.com
- * @Time 2022-11-23 13:37:49
- */
-
 const ua = navigator.userAgent
 
 export const UA = ua.toLowerCase()
