@@ -1,0 +1,25 @@
+/*
+* 在此处定位全局css root变量。
+* theme：主题，默认theme
+* global：使用范围 全局
+* 属性[伪类状态]/规则-属性[伪类状态]
+*
+*
+*/
+:root {
+  --theme-global-color: red;
+  --theme-global-background: #eee;
+
+  /* 滚动条 凹槽设置 */
+  --theme-global-scrollbar-bg-color: transparent;
+
+  /* 滚动条的宽度 */
+  --theme-global-scrollbar-width: 8px;
+  --theme-global-scrollbar-height: 8px;
+
+  /* 滚动条滑块设置 */
+  --theme-global-scrollbar-thumb-bg-color: #4b85dd;
+
+  /* 滚动条滑块设置:hover */
+  --theme-global-scrollbar-thumb-bg-color-hover: #146bed;
+}

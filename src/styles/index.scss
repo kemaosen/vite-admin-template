@@ -1,9 +1,3 @@
-p,ul{
-  margin: 0;
-  padding: 0;
-}
-ul{
-  li{
-    list-style-type:none;
-  }
-}
+@import "./transition.scss";
+@import "./common.scss";
+@import "./global-theme-var.scss";

@@ -12,7 +12,10 @@
     "docs:preview": "vitepress preview doc"
   },
   "dependencies": {
+    "ant-design-vue": "^4.2.3",
+    "axios": "^1.7.4",
     "pinia": "^2.2.1",
+    "qs": "^6.13.0",
     "vue": "^3.4.35",
     "vue-router": "^4.4.3"
   },

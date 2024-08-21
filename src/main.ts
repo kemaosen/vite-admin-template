@@ -9,3 +9,5 @@ const app = createApp(App)
 setupStore(app)
 app.use(router)
 app.mount('#app')
+
+export default app
