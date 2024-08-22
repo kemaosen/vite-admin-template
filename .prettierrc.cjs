@@ -1,5 +1,7 @@
 //此处的规则供参考，其中多半其实都是默认值，可以根据个人习惯改写
 module.exports = {
+    // 修复文件报错 Delete `␍`eslint
+    "endOfLine": "auto",
     //去除结尾逗号
     "trailingComma": "all",
     //单行长度

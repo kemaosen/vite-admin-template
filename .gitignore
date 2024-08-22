@@ -17,6 +17,7 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
+.eslintcache
 *.suo
 *.ntvs*
 *.njsproj
@@ -25,5 +26,3 @@ dist-ssr
 .history
 doc/.vitepress/dist
 doc/.vitepress/cache
-
-.eslintcache
