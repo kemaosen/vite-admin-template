@@ -1,4 +1,4 @@
-import {onMounted, onUnmounted} from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 // 按下esc键触发函数调用
 export function useEscapeKey(onEscape, domRef?) {
   const handleEscape = (event) => {

@@ -30,11 +30,13 @@ export default function restArguments(func: Fn, startIndex: number) {
     const rest: any = Array(length)
     let index = 0
     for (; index < length; index++) {
+      // eslint-disable-next-line prefer-rest-params
       rest[index] = arguments[index + startIndex]
     }
     func.call(this, rest)
     const args: any = Array(startIndex + 1)
     for (index = 0; index < startIndex; index++) {
+      // eslint-disable-next-line prefer-rest-params
       args[index] = arguments[index]
     }
     args[startIndex] = rest
@@ -51,7 +53,7 @@ export function debounce(func: any, wait = 300, immediate = false) {
   let context: any
 
   const later = function () {
-    var passed = new Date().getTime() - previous
+    const passed = new Date().getTime() - previous
     if (wait > passed) {
       timeout = setTimeout(later, wait - passed)
     } else {
@@ -63,6 +65,7 @@ export function debounce(func: any, wait = 300, immediate = false) {
   }
 
   const debounced: any = restArguments(function (this: any, _args: any) {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     context = this
     args = _args
     previous = new Date().getTime()
@@ -100,8 +103,10 @@ export function throttle(func: any, wait = 300, options?: Record<string, any>) {
   const throttled = function (this: any) {
     const _now = +new Date()
     if (!previous && options?.leading === false) previous = _now
-    var remaining = wait - (_now - previous)
+    const remaining = wait - (_now - previous)
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     context = this
+    // eslint-disable-next-line prefer-rest-params
     args = arguments
     if (remaining <= 0 || remaining > wait) {
       if (timeout) {

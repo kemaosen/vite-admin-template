@@ -101,7 +101,7 @@ export function isSet<T = any>(val: unknown): val is Set<T> {
   return is(val, 'Set')
 }
 
-export function isSymbol(val: unknown): val is Symbol {
+export function isSymbol(val: unknown): val is symbol {
   return is(val, 'Symbol')
 }
 

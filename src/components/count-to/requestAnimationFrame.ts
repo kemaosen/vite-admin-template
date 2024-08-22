@@ -46,4 +46,4 @@ if (isServer) {
   }
 }
 
-export {requestAnimationFrame, cancelAnimationFrame}
+export { requestAnimationFrame, cancelAnimationFrame }

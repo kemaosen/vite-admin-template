@@ -125,7 +125,7 @@ const divide = (num1, num2, precision = 15) => {
     // fix: 类似 10 ** -4 为 0.00009999999999999999，strip 修正
     return times(
       strip(num1Changed / num2Changed, precision),
-      strip(Math.pow(10, digitLength(num2) - digitLength(num1)))
+      strip(Math.pow(10, digitLength(num2) - digitLength(num1))),
     )
   })
   return fn(num1, num2)
@@ -162,7 +162,7 @@ function enableBoundaryChecking(flag = true) {
   _boundaryCheckingState = flag
 }
 
-export {strip, plus, minus, times, divide, round, digitLength, float2Fixed, enableBoundaryChecking}
+export { strip, plus, minus, times, divide, round, digitLength, float2Fixed, enableBoundaryChecking }
 
 export default {
   strip,
@@ -173,5 +173,5 @@ export default {
   round,
   digitLength,
   float2Fixed,
-  enableBoundaryChecking
+  enableBoundaryChecking,
 }
