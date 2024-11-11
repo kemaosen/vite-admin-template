@@ -27,11 +27,11 @@ export interface RequestOptions {
   isMock?: boolean
 }
 
-export const baseUrl = process.env.VUE_BASE_URL || ''
+export const baseUrl = import.meta.env.VITE_BASE_URL || ''
 // 真实请求的路径前缀
-const baseApiUrl = process.env.VUE_BASE_API || ''
+const baseApiUrl = import.meta.env.VITE_BASE_API || ''
 // mock 请求路径前缀
-const baseMockUrl = process.env.VUE_MOCK_API || ''
+const baseMockUrl = import.meta.env.VITE_MOCK_API || ''
 // 公共前缀
 export const prefix = '/p4/api/v1/dv'
 // 过滤请求中值为 undefined、null 的参数
@@ -144,7 +144,10 @@ instance.interceptors.response.use(
   }, 50),
 )
 
-export const request = async <T = any>(config: AxiosRequestConfigExtend, options: RequestOptions = {}): Promise<T> => {
+export const request = async <T = any>(
+  config: AxiosRequestConfig & { headers?: any; loading?: boolean },
+  options: RequestOptions = {},
+): Promise<T> => {
   const { loading = true } = config
   try {
     const { isGetData = true, isMock = false } = options

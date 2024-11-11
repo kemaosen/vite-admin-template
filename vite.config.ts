@@ -3,12 +3,13 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import { visualizer } from 'rollup-plugin-visualizer'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import { viteMockServe } from 'vite-plugin-mock'
 
 // https://vitejs.dev/config/
 export default ({ mode }: any) => {
   // 获取配置环境参数
   const env = loadEnv(mode, process.cwd())
-  console.log(env)
+  console.log(mode)
   return defineConfig({
     plugins: [
       vue(),
@@ -21,6 +22,10 @@ export default ({ mode }: any) => {
       // }),
       visualizer({ open: false }),
       vueJsx(),
+      viteMockServe({
+        mockPath: './mock', // mock文件存放的位置
+        enable: mode === 'development', // 在 mock 模式中启用 mock
+      }),
     ],
     resolve: {
       alias: {
@@ -56,10 +61,10 @@ export default ({ mode }: any) => {
     server: {
       port: 2157,
       proxy: {
-        '/api': {
-          target: '', //设置请求地址
+        [env.VITE_BASE_API]: {
+          target: 'http://127.0.0.1:3000', //设置请求地址
           changeOrigin: true, //是否跨域
-          rewrite: (path) => path.replace(/^\/api/, ''), //重写地址
+          rewrite: (path) => path.replace(env.VITE_BASE_API, ''), //重写地址
         },
       },
     },
